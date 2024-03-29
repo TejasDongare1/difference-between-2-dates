@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difference between two dates</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculate Difference Between Two Dates</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+            body {
+                background-color: #f2f2f2;
+                min-height: 100vh;
+
+            }
+
+            .heading {
+                text-align: center;
+                color: black;
+                margin-top: 20px;
+                background-color: white;
+                padding: 20px;
+                width: 600px;
+                height: 40px;
+                margin: 10px auto;
+                display: block;
+                border-radius: 20px;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                font-family: "Poppins", sans-serif;
+                font-size: 25px;
+            }
+
+            .parent-container {
+                display: block;
+                margin: 10px auto;
+                padding: 10px;
+                width: 400px;
+                background: #fff;
+                border-radius: 15px;
+                box-shadow: 0 0 25px rgba(0, 0, 0, .3);
+            }
+
+            .container {
+                display: block;
+                margin: 10px auto;
+                padding-top: 40px;
+                width: 300px;
+                font-size: 25px;
+            }
+
+            input {
+                width: 100%;
+                height: 40px;
+                margin-top: 10px;
+                padding: 5px;
+                font-size: 20px;
+            }
+
+            #dayCount {
+                text-align: center;
+                margin-top: 30px;
+                font-weight: bold;
+            }
+
+            .btn {
+                background-image: linear-gradient(to right, #4facfe 0%, #00f2fe 100%);
+                font-size: 20px;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 10px;
+                cursor: pointer;
+                display: block;
+                margin: 10px auto;
+                margin-top: 20px;
+                font-weight: bolder;
+                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+            }
+
+            .label {
+                font-family: "Poppins", sans-serif;
+                font-size: 20px;
+                font-weight: bolder;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1 class="heading">Calculate Difference Between Two Dates </h1>
+        <div class="parent-container">
+            <div class="container">
+                <label for="firstDate" class="label">First Date :</label>
+                <input type="date" id="firstDate">
+                <br> <br>
+
+                <label for="secondDate" class="label">Second Date :</label>
+                <input type="date" id="secondDate">
+            </div>
+            <h4 id="dayCount"></h4>
+        </div>
+        <div>
+            <button type="button" class="btn" onclick="calculate()">Click Here to Calculate</button>
+            <button type="button" class="btn" onclick="reset()">Reset All the Settings</button>
+        </div>
+
+
+        <script>
+            function calculate() {
+                const firstDate = document.getElementById('firstDate').value;
+                const secondDate = document.getElementById('secondDate').value;
+
+                const date1 = new Date(firstDate);
+                const date2 = new Date(secondDate);
+
+                const difference = Math.abs(date2 - date1);
+
+                const days = Math.round(difference / (1000 * 60 * 60 * 24));
+
+                const dayElement = document.getElementById('dayCount');
+                dayElement.innerText = ` The Difference between Two Dates is ${days}  ${days > 1 ? 'days' : 'day'}.`;
+
+            }
+            function reset() {
+                document.getElementById('firstDate').value = "";
+                document.getElementById('secondDate').value = "";
+                document.getElementById('dayCount').innerText = "";
+            }
+        </script>
+    </body>
+
+    </html>
+</body>
+
+</html>
